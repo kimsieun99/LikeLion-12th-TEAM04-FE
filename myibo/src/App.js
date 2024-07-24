@@ -1,8 +1,15 @@
-import logo from "./logo.svg";
-import "./App.css";
+import React from 'react';
+import Nav from './components/Nav';
+import './App.css';
+import Footer from './components/Footer';
 
 function App() {
-  return <></>;
+  return (
+    <div className="App">
+      <Nav />
+      <Footer />
+    </div>
+  );
 }
 
 export default App;
