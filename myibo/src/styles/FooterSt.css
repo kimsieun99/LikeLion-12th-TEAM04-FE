@@ -1,62 +1,69 @@
 .footer {
-  padding: 10px 0;
-  background-color: #f7fffb; /* 배경색 설정 */
+  background-color: #f7fffb;
   font-family: "Pretendard";
 }
 
 a {
-  color: black; /* 글자색을 검정색으로 설정 */
+  color: black;
 }
 
-/* 마우스 오버 시 색상 변경 (선택사항) */
 a:hover {
-  color: darkgray; /* 마우스 오버 시 색상 변경 */
+  color: darkgray;
 }
 
 .footer-container {
-  display: flex; /* 가로 방향으로 정렬 */
-  justify-content: center; /* 섹션 간 간격 조정 */
-  margin: 30px 0 60px 0; /* 섹션 간 여백 */
-  align-items: flex-start; /* 상단 정렬 */
+  display: flex;
+  justify-content: center;
+  margin: 0px 0 60px 0;
+  align-items: flex-start;
+  padding: 2vw 0 0vw 0;
 }
 
 .footer-section {
-  text-align: center; /* 텍스트 가운데 정렬 */
-  margin: 0 100px; /* 섹션 간 여백 */
+  text-align: center;
+  margin: 0 100px;
+}
+
+.footer-section h3 {
+  font-size: 20px;
+}
+
+.footer-section p {
+  font-size: 15px;
+  margin-top: 16px;
 }
 
 .footer-section ul {
   list-style-type: none;
   padding: 0;
-  display: grid; /* 그리드 레이아웃 사용 */
-  grid-template-columns: repeat(4, 1fr); /* 4열로 설정 */
-  gap: 10px; /* 그리드 간격 */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
 }
 
 .footer-section li {
-  margin: 5px 0; /* 리스트 항목 간 간격 */
+  margin: 5px 0;
 }
 
-/* 배경 이미지 스타일 */
 .background-img {
-  width: 100%; /* 가로 100% */
-  margin-top: 30px; /* 위쪽 여백 설정 */
+  width: 100%;
+  margin-top: 30px;
 }
 
 .background-img img {
-  width: 100%; /* 가로 100%로 설정 */
-  height: auto; /* 비율 유지하여 세로 크기 자동 조정 */
+  width: 100%;
+  height: auto;
 }
 
-/* 미디어 쿼리로 반응형 설정 */
 @media (max-width: 768px) {
   .background-img img {
-    width: 100%; /* 여전히 가로 100% */
-    height: auto; /* 세로 크기 자동 조정 */
+    width: 100%;
+    height: auto;
   }
 
   .footer-container {
-    flex-direction: column; /* 모바일에서는 세로 정렬 */
-    align-items: center; /* 가운데 정렬 */
+    flex-direction: column;
+    margin: 0px 0 30px 0;
+    align-items: center;
   }
 }
