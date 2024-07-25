@@ -3,11 +3,11 @@
   font-family: "Pretendard";
 }
 
-a {
+.footer a {
   color: black;
 }
 
-a:hover {
+.footer a:hover {
   color: darkgray;
 }
 
