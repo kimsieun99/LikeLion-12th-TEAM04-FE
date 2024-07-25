@@ -1,0 +1,27 @@
+.content {
+    flex: 2;
+    padding: 20px;
+    text-align: left;
+    margin-bottom: 150px;
+    font-family: "Pretendard";
+  }
+
+  h2{
+    font-size: 25px;
+    margin-bottom: 50px;
+  } 
+
+  h1 {
+    font-size: 50px;
+    margin-bottom: 50px;
+  }
+
+ 
+  
+  p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+
+  

@@ -36,3 +36,27 @@
     transform: rotate(360deg);
   }
 }
+
+.main-content {
+  display: flex;
+  align-items: center; /* 요소들이 수직 중앙에 위치하도록 설정 */
+  justify-content: space-between; /* 요소들이 양 끝에 배치되도록 설정 */
+  padding-top: 80px; /* Nav 바 높이만큼 패딩 추가 */
+}
+
+.main1-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+
+}
+
+.main2-image {
+  flex: 2; /* main2-image의 크기를 더 크게 설정 */
+}
+
+.image {
+  max-width: 100%;
+  height: auto;
+}
