@@ -167,3 +167,13 @@
     font-size: 3vw;
   }
 }
+
+@media (max-width: 400px) {
+  .section2 {
+    height: 600px;
+  }
+
+  .section2-title {
+    font-size: 6vw;
+  }
+}
