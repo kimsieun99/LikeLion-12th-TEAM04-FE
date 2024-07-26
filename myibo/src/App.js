@@ -1,26 +1,23 @@
-import React from 'react';
-import Nav from './components/Nav';
-import Content from './components/MainContent';
-import './App.css';
-import main1 from './img/main1.png';
-import main2 from './img/main2.png';
-import Footer from './components/Footer'
+import React from "react";
+import Nav from "./components/Nav";
+import "./App.css";
+import Section1 from "./components/Section1";
+import Section2 from "./components/Section2";
+import Section3 from "./components/Section3";
+import Section4 from "./components/Section4";
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="App">
+    <>
       <Nav />
-      <div className="main-content">
-        <div className="main1-image">
-          <img src={main1} alt="Main 1 visual" className="image" />
-        </div>
-        <Content />
-        <div className="main2-image">
-          <img src={main2} alt="Main 2 visual" className="image" />
-        </div>
-      </div>
+      <Section1 />
+      <Section2 />
+      <Section3 />
+      <Section4 />
       <Footer />
-    </div>
+      
+    </>
   );
 }
 
