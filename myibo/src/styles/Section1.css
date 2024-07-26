@@ -1,34 +1,79 @@
 .Section1 {
-    flex: 2;
-    padding: 20px;
-    text-align: left;
-    margin-bottom: 150px;
-    background-image: url("../img/Section1.png");
-    background-size: cover;
-    height: 1080px;
-    font-family: "Pretendard";
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 80px;
+  font-family: "Pretendard";
+  background-image: url("../img/Section1.png");
+  background-size: cover;
+  background-position: center;
+  height: 900px;
+  flex-direction: column;
+}
+
+.content {
+  flex: 2;
+  padding: 20px;
+  text-align: left;
+  margin-bottom: 150px;
+  margin-left: 20px;
+}
+
+.section1-title {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.section1-middle {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.section1-under {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+  .Section1 {
+    flex-direction: row;
   }
 
   .content {
-   margin-top: 300px;
-   margin-left: 165px;
+    margin-left: 50px;
   }
 
-  .section1-title{
+  .section1-title {
+    font-size: 25px;
+    margin-bottom: 30px;
+  }
+
+  .section1-middle {
+    font-size: 40px;
+    margin-bottom: 30px;
+  }
+
+  .section1-under {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .content {
+    margin-left: 165px;
+  }
+
+  .section1-title {
     font-size: 25px;
     margin-bottom: 50px;
   }
 
-  .section1-middle{
+  .section1-middle {
     font-size: 50px;
     margin-bottom: 50px;
   }
 
   .section1-under {
     font-size: 16px;
-    line-height: 1.5;
-
   }
-  
-
-  
+}
