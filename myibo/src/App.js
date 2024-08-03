@@ -1,22 +1,21 @@
 import React from "react";
-import "./App.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Nav from "./components/Nav";
-import Section1 from "./components/Section1";
-import Section2 from "./components/Section2";
-import Section3 from "./components/Section3";
-import Section4 from "./components/Section4";
 import Footer from "./components/Footer";
+import MyInsurancePage from "./components/MyInsurancePage";
+import MainPage from "./pages/MainPage";
 
 function App() {
   return (
     <>
-      <Nav />
-      <Section1 />
-      <Section2 />
-      <Section3 />
-      <Section4 />
-      <Footer />
-      
+      <Router>
+        <Nav />
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/my-insurance" element={<MyInsurancePage />} />
+        </Routes>
+        <Footer />
+      </Router>
     </>
   );
 }
