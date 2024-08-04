@@ -1,0 +1,13 @@
+.container {
+    background-image: url('../img/MyPage.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .insurance-info {
+    font-size: 24px;
+    font-weight: bold;
+  }
