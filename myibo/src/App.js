@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import MyPage from "./components/MyPage";
 import SignupPage from "./components/SignupPage";
 import LoginPage from "./components/LoginPage";
+import MyInsurancePage from "./components/MyInsurancePage";
 import MainPage from "./pages/MainPage";
 
 function App() {
@@ -17,10 +18,10 @@ function App() {
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/login" element={<LoginPage />} /> 
           <Route path="/MyPage" element={<MyPage />} /> 
-      </Routes>
-      <Footer />
+          <Route path="/my-insurance" element={<MyInsurancePage />} />
+        </Routes>
+        <Footer />
       </Router>
-      
     </>
   );
     
