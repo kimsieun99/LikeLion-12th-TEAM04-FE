@@ -19,7 +19,7 @@
 .search-container {
   display: flex; 
   align-items: center; 
-  margin-left: auto; /* 자동으로 오른쪽으로 정렬 */
+  margin-left: auto; 
   margin-right: 15px;
 }
 
@@ -38,6 +38,7 @@
   padding: 10px; 
   border-radius: 20px 0 0 20px; 
   border: 1px solid #000; 
+
 }
 
 .search-button {
@@ -47,9 +48,10 @@
   color: #ffffff; 
   cursor: pointer; 
   margin-bottom: 20px;
-  margin-top: 20px;
+  margin-top: 25px;
   padding: 10px 20px;
   background-color: #000000;
+  height: 37px; 
 }
 
 .profile-image {
