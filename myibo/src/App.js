@@ -17,8 +17,8 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/signup" element={<SignupPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/MyPage" element={<MyPage />} />
+          <Route path="/login" element={<LoginPage />} /> 
+          <Route path="/MyPage" element={<MyPage />} /> 
           <Route path="/my-insurance" element={<MyInsurancePage />} />
           <Route path="/search" element={<SearchPage />} />
         </Routes>
@@ -26,6 +26,8 @@ function App() {
       </Router>
     </>
   );
+    
+
 }
 
 export default App;
