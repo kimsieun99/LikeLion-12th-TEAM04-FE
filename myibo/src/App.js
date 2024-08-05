@@ -7,6 +7,7 @@ import SignupPage from "./components/SignupPage";
 import LoginPage from "./components/LoginPage";
 import MyInsurancePage from "./components/MyInsurancePage";
 import MainPage from "./pages/MainPage";
+import SearchPage from "./pages/SearchPage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} /> 
           <Route path="/MyPage" element={<MyPage />} /> 
           <Route path="/my-insurance" element={<MyInsurancePage />} />
+          <Route path="/search" element={<SearchPage />} />
         </Routes>
         <Footer />
       </Router>

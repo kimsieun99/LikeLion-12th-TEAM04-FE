@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import "../styles/MyInsurancePage.css";
+import "../../styles/SearchMyInsurance.css";
 
 import {
   setInsuranceData,
   setLoading,
   setError,
   setToken,
-} from "../state/insuranceSlice";
+} from "../../state/insuranceSlice";
 
-const MyInsurancePage = () => {
+const SearchMyInsurance = () => {
   const dispatch = useDispatch();
   const {
     insuranceData = [],
@@ -57,39 +57,54 @@ const MyInsurancePage = () => {
   }, [dispatch]);
 
   return (
-    <div className="MyInsuranceContainer">
+    <div>
       {loading ? (
-        <div className="loading">로딩 중...</div>
+        <div>로딩 중...</div>
       ) : error ? (
-        <div className="error">{error}</div>
+        <div>{error}</div>
       ) : (
-        <>
-          <div className="MIP-title">
-            <h2>회원님의 보험 정보</h2>
-          </div>
-
-          <div className="content-wrapper">
-            {" "}
-            {insuranceData.length === 0 ? (
-              <div>보험이력이 없습니다. 보험 정보를 연결해주세요</div>
-            ) : (
-              <ul>
-                {insuranceData.map((insurance, index) => (
-                  <li key={index}>
+        <div className="SMI-container">
+          {" "}
+          <h3>회원님께서 가입한 보험이에요.</h3>
+          {insuranceData.length === 0 ? (
+            <div>보험이력이 없습니다. 보험 정보를 연결해주세요</div>
+          ) : (
+            <div>
+              {insuranceData.map((insurance, index) => (
+                <div key={index} className="insurance-card">
+                  <a
+                    href={
+                      insurance.resHomePage.startsWith("http")
+                        ? insurance.resHomePage
+                        : "http://" + insurance.resHomePage
+                    }
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="logo"
+                  >
+                    로고
+                  </a>
+                  <div className="company-name">
                     {insurance.resCompanyNm}
-                    {": "} {insurance.insuranceNm}
+                    <br />
+                  </div>
+                  <div className="insurance-name">
+                    {insurance.insuranceNm}
+                    <br />
+                  </div>
+                  <div className="claim-status">
                     {insurance.isDentalInsurance
-                      ? " (치아 보험)"
-                      : " (실비 보험)"}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-        </>
+                      ? "실비청구불가능"
+                      : "실비청구가능"}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
       )}
     </div>
   );
 };
 
-export default MyInsurancePage;
+export default SearchMyInsurance;
