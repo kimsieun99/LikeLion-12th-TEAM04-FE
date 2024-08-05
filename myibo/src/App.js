@@ -4,15 +4,17 @@ import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import MyInsurancePage from "./components/MyInsurancePage";
 import MainPage from "./pages/MainPage";
+import SearchPage from "./pages/SearchPage";
 
 function App() {
   return (
     <>
       <Router>
-        <Nav />
+        {/* <Nav /> */}
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/my-insurance" element={<MyInsurancePage />} />
+          <Route path="/search" element={<SearchPage />} />
         </Routes>
         <Footer />
       </Router>

@@ -1,0 +1,42 @@
+.SMI-container {
+  margin: 20px 10px 20px 20px;
+}
+
+.insurance-card {
+  background-color: #65b4ad; /* 카드 배경색 */
+  border-radius: 10px; /* 모서리 둥글게 */
+  padding: 20px; /* 패딩 */
+  margin: 10px; /* 간격 */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 가운데 정렬 */
+  color: white; /* 글자 색상 */
+  width: 200px;
+}
+
+.logo {
+  background-color: white; /* 로고 배경색 */
+  color: #65b4ad; /* 로고 글자 색상 */
+  border-radius: 50%; /* 원형 */
+  padding: 10px 20px; /* 패딩 */
+  text-align: center; /* 가운데 정렬 */
+  text-decoration: none; /* 링크 밑줄 제거 */
+}
+
+.company-name {
+  font-weight: bold; /* 두꺼운 글씨 */
+  color: black;
+  font-size: 20px; /* 크기 조정 */
+  margin: 10px 0; /* 간격 조정 */
+}
+
+.insurance-name {
+  font-size: 15px; /* 크기 조정 */
+  margin: 5px 0; /* 간격 조정 */
+}
+
+.claim-status {
+  font-size: 14px; /* 크기 조정 */
+  color: #40385b; /* 글자 색상 */
+  font-weight: bold;
+}
