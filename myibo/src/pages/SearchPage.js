@@ -11,7 +11,6 @@ const SearchPage = () => {
   const handleSearch = () => {
     if (searchTerm.trim()) {
       setIsSearched(true);
-      // 검색 로직 추가 (예: API 호출)
     }
   };
 

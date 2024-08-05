@@ -3,6 +3,8 @@ import "../styles/FooterSt.css";
 import githubIcon from "../img/githubIcon.png";
 import backgroundImg from "../img/backgroundImg.png";
 
+
+
 const Footer = () => {
   return (
     <footer className="footer">

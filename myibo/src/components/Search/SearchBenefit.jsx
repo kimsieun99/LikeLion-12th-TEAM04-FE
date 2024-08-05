@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import {
-  setSearchResult, // 비급여 검색 결과 설정 액션 추가
+  setSearchResult,
   setLoading,
   setError,
 } from "../../state/insuranceSlice";
@@ -19,7 +19,7 @@ const SearchBenefit = ({ searchTerm }) => {
 
       try {
         const response = await axios.get(
-          `https://tearofserver.store/api/v1/contract?query=${searchTerm}`, // 비급여 검색 API 호출
+          `https://tearofserver.store/api/v1/contract?query=${searchTerm}`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -29,7 +29,7 @@ const SearchBenefit = ({ searchTerm }) => {
         );
 
         if (response.data.code === 200) {
-          dispatch(setSearchResult(response.data.data || {})); // 비급여 검색 결과 저장
+          dispatch(setSearchResult(response.data.data || {}));
         } else {
           dispatch(setError(response.data.message));
         }
@@ -43,7 +43,6 @@ const SearchBenefit = ({ searchTerm }) => {
     };
 
     if (searchTerm) {
-      // searchTerm이 있을 때만 호출
       fetchSearchBenefit();
     }
   }, [dispatch, searchTerm]);
