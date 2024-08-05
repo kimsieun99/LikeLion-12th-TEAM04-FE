@@ -7,6 +7,8 @@ import {
 } from '../state/slices/signupSlice';
 import '../styles/SignupForm.css';
 
+//포스트 오류만 
+
 const SecondSignupForm = () => {
   const dispatch = useDispatch();
   const formData = useSelector((state) => state.signup);
@@ -65,10 +67,10 @@ const SecondSignupForm = () => {
         }, {
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${localStorage.getItem('accessToken')}`, // 여기에 액세스 토큰 포함
+            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2IiwiQXV0aG9yaXphdGlvbiI6IlJPTEVfVVNFUiIsImV4cCI6MTcyMjc4MjE1NH0.8sPNdAV-4XkvT6yEnbMtOa50igz1PKCfbIYr0ajANUE',
           },
           params: {
-            thirdPartyToken: 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZXJ2aWNlX3R5cGUiOiIxIiwic2NvcGUiOlsicmVhZCJdLCJzZXJ2aWNlX25vIjoiMDAwMDA0MzM4MDAyIiwiZXhwIjoxNzIzMTkxNDc5LCJhdXRob3JpdGllcyI6WyJJTlNVUkFOQ0UiLCJQVUJMSUMiLCJCQU5LIiwiRVRDIiwiU1RPQ0siLCJDQVJEIl0sImp0aSI6ImJiMDc1MGUzLWE3NjMtNDc1Ny04NTg3LTc4ZDJlM2YwNGRiMCIsImNsaWVudF9pZCI6ImRiZDJmMTRmLWE3NGUtNDYzZS04ZTFmLTkzYTIxMDFlNTE1NyJ9.nTmb1HFT9sQ7MeYRGjB8ORKQ63RzrxK038N2VAehZy3jl7nRLg_w3VbQw-MiLhCJb8-JYUstsi9l7KvxNDmngAtuimXnucpltEq019rU7JPDaeFZLfCD_EIWTknJt1V_rPXr6if39OKdf05HBQb2Pi7O5qXqMhWmjWeLNlFkMUZvk5XTxSUCPjV8Rz21SUmkJ5EyyNh3M61It7bR375NnEwpdvrF1L5FyK4p_Vfn1D7xdBZHGE5k7uKVyOJN1dk3JVDkGCJcHgabOCMHU01jyZvRr8DI7NDnsKM0IzcdFcaBIWnRzBZ6DgH6F5UJ8PXqSghyC05V6hd4hTxUmhjw2A', // 실제 토큰으로 대체
+            thirdPartyToken: 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZXJ2aWNlX3R5cGUiOiIxIiwic2NvcGUiOlsicmVhZCJdLCJzZXJ2aWNlX25vIjoiMDAwMDA0MzM4MDAyIiwiZXhwIjoxNzIzMTkxNDc5LCJhdXRob3JpdGllcyI6WyJJTlNVUkFOQ0UiLCJQVUJMSUMiLCJCQU5LIiwiRVRDIiwiU1RPQ0siLCJDQVJEIl0sImp0aSI6ImJiMDc1MGUzLWE3NjMtNDc1Ny04NTg3LTc4ZDJlM2YwNGRiMCIsImNsaWVudF9pZCI6ImRiZDJmMTRmLWE3NGUtNDYzZS04ZTFmLTkzYTIxMDFlNTE1NyJ9.nTmb1HFT9sQ7MeYRGjB8ORKQ63RzrxK038N2VAehZy3jl7nRLg_w3VbQw-MiLhCJb8-JYUstsi9l7KvxNDmngAtuimXnucpltEq019rU7JPDaeFZLfCD_EIWTknJt1V_rPXr6if39OKdf05HBQb2Pi7O5qXqMhWmjWeLNlFkMUZvk5XTxSUCPjV8Rz21SUmkJ5EyyNh3M61It7bR375NnEwpdvrF1L5FyK4p_Vfn1D7xdBZHGE5k7uKVyOJN1dk3JVDkGCJcHgabOCMHU01jyZvRr8DI7NDnsKM0IzcdFcaBIWnRzBZ6DgH6F5UJ8PXqSghyC05V6hd4hTxUmhjw2A', 
           },
         });
 

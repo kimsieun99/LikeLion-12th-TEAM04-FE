@@ -131,7 +131,7 @@ const FirstSignupForm = () => {
     e.preventDefault();
     if (isFormValid()) {
       try {
-        const response = await axios.post('/auth/sign-up', {
+        const response = await axios.post('https://tearofserver.store/auth/sign-up', {
           userName: formData.userName,
           identity: formData.identity,
           birthDate: formData.birthDate,
@@ -143,7 +143,7 @@ const FirstSignupForm = () => {
         }, {
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${localStorage.getItem('accessToken')}`,
+            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2IiwiQXV0aG9yaXphdGlvbiI6IlJPTEVfVVNFUiIsImV4cCI6MTcyMjc4MjE1NH0.8sPNdAV-4XkvT6yEnbMtOa50igz1PKCfbIYr0ajANUE',
           },
           params: {
             thirdPartyToken: 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZXJ2aWNlX3R5cGUiOiIxIiwic2NvcGUiOlsicmVhZCJdLCJzZXJ2aWNlX25vIjoiMDAwMDA0MzM4MDAyIiwiZXhwIjoxNzIzMTk3MjM2LCJhdXRob3JpdGllcyI6WyJJTlNVUkFOQ0UiLCJQVUJMSUMiLCJCQU5LIiwiRVRDIiwiU1RPQ0siLCJDQVJEIl0sImp0aSI6ImQ1YWYyOGUwLTBhYTktNDZiOC1hNDRhLTZmN2I3ZmM2N2RmOSIsImNsaWVudF9pZCI6ImRiZDJmMTRmLWE3NGUtNDYzZS04ZTFmLTkzYTIxMDFlNTE1NyJ9.SgWm84z_eBTS7tdajDTs4cybDdhMi2a9dFh1kiVELUoG4Y_kf3n1_j-cjLYNsOWlfWrz_ElKngkPvgUAj4HY55L_3bv-KGrM7QTDYHEdYF-Yvagk4hqyOl5X-aovOLDXurFhzsS1Erw3A8Z86atpKXahaS8uOTfA3S5DLRdB2ghJaSQoiXWXfSErOSIou6VbwXOlSdSb9S_GjFy0GVr-70mK17IMRoVPayHykLb9YpkPtS1dnwvpl3bjOWRTT59CgCeFg2FgY0pk4lkeN26Qs23cA-Jv-MOM_7Fh5u4nhil5x3eR5c_5zBLmxnAcoUnEBa1rxU119XNxaVbGRcxULg', 

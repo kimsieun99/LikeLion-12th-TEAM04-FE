@@ -7,12 +7,18 @@ function Nav() {
   const navigate = useNavigate();
 
   const handleProfileClick = () => {
-    navigate('/MyPage');
+    navigate('/login'); // 로그인 페이지로 이동
+  };
+
+  const handleLogoClick = () => {
+    navigate('/');
   };
 
   return (
     <nav className="nav">
-      <div className="nav-logo">내이보로고</div>
+      <div className="nav-logo" onClick={handleLogoClick} style={{ cursor: 'pointer' }}>
+        내이보로고
+      </div>
       <form className="search-container">
         <input type="text" placeholder="치료명 입력" className="search-input" />
         <button type="submit" className="search-button">검색</button>
