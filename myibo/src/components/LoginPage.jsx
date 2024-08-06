@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import '../styles/LoginForm.css';
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import "../styles/LoginForm.css";
 
 const LoginPage = () => {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({ id: '', password: '' });
-  const [errors, setErrors] = useState({ id: '', password: '' });
-  const [successMessage, setSuccessMessage] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [formData, setFormData] = useState({ id: "", password: "" });
+  const [errors, setErrors] = useState({ id: "", password: "" });
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,15 +17,15 @@ const LoginPage = () => {
 
   const isFormValid = () => {
     let valid = true;
-    let newErrors = { id: '', password: '' };
+    let newErrors = { id: "", password: "" };
 
     if (!formData.id) {
-      newErrors.id = '아이디를 입력하세요';
+      newErrors.id = "아이디를 입력하세요";
       valid = false;
     }
 
     if (!formData.password) {
-      newErrors.password = '비밀번호를 입력하세요';
+      newErrors.password = "비밀번호를 입력하세요";
       valid = false;
     }
 
@@ -37,29 +37,33 @@ const LoginPage = () => {
     e.preventDefault();
     if (isFormValid()) {
       try {
-        const response = await axios.post('https://tearofserver.store/auth/login', {
-          id: formData.id,
-          password: formData.password,
-        }, {
-          headers: {
-            'Content-Type': 'application/json',
+        const response = await axios.post(
+          "https://tearofserver.store/auth/login",
+          {
+            id: formData.id,
+            password: formData.password,
           },
-        });
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
-        console.log('로그인 응답:', response.data);
+        console.log("로그인 응답:", response.data);
 
         // 로그인 성공 시 액세스 토큰 저장
         if (response.data.data && response.data.data.accessToken) {
-          localStorage.setItem('accessToken', response.data.data.accessToken);
-          setSuccessMessage('로그인에 성공했습니다.');
+          localStorage.setItem("accessToken", response.data.data.accessToken);
+          setSuccessMessage("로그인에 성공했습니다.");
           // 로그인 성공 시 리디렉션
-          window.location.href = '/';
+          window.location.href = "/";
         } else {
-          setErrorMessage('로그인에 실패했습니다.');
+          setErrorMessage("로그인에 실패했습니다.");
         }
       } catch (error) {
-        console.error('로그인 에러:', error.response?.data || error.message);
-        setErrorMessage('로그인에 실패했습니다.');
+        console.error("로그인 에러:", error.response?.data || error.message);
+        setErrorMessage("로그인에 실패했습니다.");
       }
     } else {
       setErrors(isFormValid());
@@ -67,7 +71,7 @@ const LoginPage = () => {
   };
 
   const handleSignupClick = () => {
-    navigate('/signup');
+    navigate("/signup");
   };
 
   return (
@@ -99,12 +103,22 @@ const LoginPage = () => {
               required
             />
           </label>
-          {errors.password && <p className="error-message">{errors.password}</p>}
+          {errors.password && (
+            <p className="error-message">{errors.password}</p>
+          )}
         </div>
-        <button type="submit" className="submit-button">로그인</button>
+        <button type="submit" className="submit-button">
+          로그인
+        </button>
         {successMessage && <p className="success-message">{successMessage}</p>}
         {errorMessage && <p className="error-message">{errorMessage}</p>}
-        <button type="button" className="signup-button" onClick={handleSignupClick}>회원가입하기</button>
+        <button
+          type="button"
+          className="signup-button"
+          onClick={handleSignupClick}
+        >
+          회원가입하기
+        </button>
       </form>
     </div>
   );
