@@ -5,4 +5,4 @@
 [서연진](https://github.com/shtfh)
 
 ID: shtfh6446
-PASSWPRD: 626a9s23@@
+PASSWORD: 626a9s23@@
