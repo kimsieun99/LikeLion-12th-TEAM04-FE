@@ -9,6 +9,7 @@ import MyInsurancePage from "./components/MyInsurancePage";
 import MainPage from "./pages/MainPage";
 import SearchPage from "./pages/SearchPage";
 
+
 function App() {
   return (
     <>
@@ -26,8 +27,6 @@ function App() {
       </Router>
     </>
   );
-    
-
 }
 
 export default App;

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import {
   setUserName,
@@ -17,6 +18,7 @@ import '../styles/SignupForm.css';
 
 const FirstSignupForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate(); // 추가된 부분
   const formData = useSelector((state) => state.signup);
   const [errors, setErrors] = useState({
     userName: '',
@@ -156,7 +158,12 @@ const FirstSignupForm = () => {
         dispatch(setFirstAuthCompleted(true));
         dispatch(setTwoWayInfo(response.data.data));
       } catch (error) {
-        console.error('1차 인증 에러:', error.response?.data || error.message);
+        if (error.response && error.response.status === 400) {
+          alert('이미 회원입니다.');
+          navigate('/login'); 
+        } else {
+          console.error('1차 인증 에러:', error.response?.data || error.message);
+        }
       }
     } else {
       validateForm();
@@ -255,6 +262,20 @@ const FirstSignupForm = () => {
             />
           </label>
           {errors.password && <p className="error-message">{errors.password}</p>}
+        </div>
+        <div className="form-group">
+          <label>
+            비밀번호 확인
+            <input
+              type="password"
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              placeholder="비밀번호를 다시 입력하세요"
+              required
+            />
+          </label>
+          {errors.confirmPassword && <p className="error-message">{errors.confirmPassword}</p>}
         </div>
         <div className="form-group">
           <label>
