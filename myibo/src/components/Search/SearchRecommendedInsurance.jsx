@@ -18,19 +18,28 @@ const SearchRecommendedInsurance = () => {
     token,
   } = useSelector((state) => state.insurance);
 
-  const dummyToken =
-    "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2IiwiQXV0aG9yaXphdGlvbiI6IlJPTEVfVVNFUiIsImV4cCI6MTcyMjg0NzUyM30.MJXpTFrm1FKlqxbRO7qwZDODGL4_tjnAYKyi8IC_A_o";
   useEffect(() => {
     const fetchRecommendedData = async () => {
       dispatch(setLoading(true));
-      dispatch(setToken(dummyToken));
+
+      // localStorage에서 토큰 가져오기
+      const tokenFromStorage = localStorage.getItem("accessToken");
+
+      // 토큰이 존재하지 않으면 에러 처리
+      if (!tokenFromStorage) {
+        dispatch(setError("토큰이 존재하지 않습니다."));
+        dispatch(setLoading(false));
+        return;
+      }
+
+      dispatch(setToken(tokenFromStorage)); // Redux 상태에 토큰 설정
 
       try {
         const response = await axios.get(
           "https://tearofserver.store/api/v1/contract/random",
           {
             headers: {
-              Authorization: `Bearer ${dummyToken}`,
+              Authorization: `Bearer ${tokenFromStorage}`, // 가져온 토큰 사용
               "Content-Type": "application/json",
             },
           }
@@ -59,7 +68,7 @@ const SearchRecommendedInsurance = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="Search-main-content">
       {loading ? (
         <div>로딩 중...</div>
       ) : error ? (
@@ -68,7 +77,7 @@ const SearchRecommendedInsurance = () => {
         <div>
           <h3>이런 보험도 있어요!</h3>
           {recommendedData.length === 0 ? (
-            <div></div>
+            <div>추천 보험이 없습니다.</div>
           ) : (
             <ul>
               {recommendedData.map((insurance, index) => (

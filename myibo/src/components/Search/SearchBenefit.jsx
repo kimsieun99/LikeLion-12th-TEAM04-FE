@@ -5,6 +5,7 @@ import {
   setSearchResult,
   setLoading,
   setError,
+  setToken,
 } from "../../state/insuranceSlice";
 
 const SearchBenefit = ({ searchTerm }) => {
@@ -17,19 +18,33 @@ const SearchBenefit = ({ searchTerm }) => {
     const fetchSearchBenefit = async () => {
       dispatch(setLoading(true));
 
+      const tokenFromStorage = localStorage.getItem("accessToken");
+
+      if (!tokenFromStorage) {
+        dispatch(setError("토큰이 존재하지 않습니다."));
+        dispatch(setLoading(false));
+        return;
+      }
+
+      dispatch(setToken(tokenFromStorage));
+
       try {
+        // 쿼리 문자열을 API 명세에 맞게 구성
+        const encodedSearchTerm = encodeURIComponent(searchTerm);
         const response = await axios.get(
-          `https://tearofserver.store/api/v1/contract?query=${searchTerm}`,
+          `https://tearofserver.store/api/v1/non-covered/check/${encodedSearchTerm}`,
           {
             headers: {
               "Content-Type": "application/json",
-              Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2IiwiQXV0aG9yaXphdGlvbiI6IlJPTEVfVVNFUiIsImV4cCI6MTcyMjc4MjE1NH0.8sPNdAV-4XkvT6yEnbMtOa50igz1PKCfbIYr0ajANUE`, // 더미 토큰 사용
+              Authorization: `Bearer ${tokenFromStorage}`,
             },
           }
         );
 
+        console.log(response.data);
+
         if (response.data.code === 200) {
-          dispatch(setSearchResult(response.data.data || {}));
+          dispatch(setSearchResult(response.data));
         } else {
           dispatch(setError(response.data.message));
         }
@@ -48,23 +63,15 @@ const SearchBenefit = ({ searchTerm }) => {
   }, [dispatch, searchTerm]);
 
   return (
-    <div>
+    <div className="Search-main-content">
       {loading ? (
         <div>로딩 중...</div>
       ) : error ? (
         <div>{error}</div>
-      ) : searchResult ? (
-        <div>
-          <h4>검색 결과: {searchResult.SearchResult}</h4>
-          <p>검색어: {searchResult.SearchQuery}</p>
-          <ul>
-            {searchResult.appliedInsuranceList?.map((insurance) => (
-              <li key={insurance.id}>{insurance.보험이름}</li>
-            ))}
-          </ul>
-        </div>
       ) : (
-        <div>급여 비급여 여부 정보 표시</div>
+        <div>
+          <h4>급여 여부: {searchResult?.data ? "급여" : "비급여"}</h4>
+        </div>
       )}
     </div>
   );
