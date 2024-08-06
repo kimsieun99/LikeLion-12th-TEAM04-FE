@@ -1,17 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Nav.css";
 import profileIcon from "../img/profile.png";
+import mainlogo from "../img/MainLogo.png";
 
 function Nav() {
   const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleProfileClick = () => {
-    navigate("/login"); // 로그인 페이지로 이동
+    navigate("/login");
   };
 
   const handleLogoClick = () => {
     navigate("/");
+  };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchTerm.trim()) {
+      navigate(`/search?term=${encodeURIComponent(searchTerm)}`);
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleSearch(e);
+    }
   };
 
   return (
@@ -21,10 +36,18 @@ function Nav() {
         onClick={handleLogoClick}
         style={{ cursor: "pointer" }}
       >
-        내이보로고
+        <img src={mainlogo} alt="로고" />
+        내이보
       </div>
-      <form className="search-container">
-        <input type="text" placeholder="치료명 입력" className="search-input" />
+      <form className="search-container" onSubmit={handleSearch}>
+        <input
+          type="text"
+          placeholder="치료명 입력"
+          className="search-input"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)} // 입력값 변경 시 상태 업데이트
+          onKeyDown={handleKeyDown} // 엔터 키 이벤트 핸들러 추가
+        />
         <button type="submit" className="search-button">
           검색
         </button>
@@ -35,4 +58,5 @@ function Nav() {
     </nav>
   );
 }
+
 export default Nav;
